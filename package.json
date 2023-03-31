@@ -2,13 +2,17 @@
   "name": "logo-generator",
   "version": "1.0.0",
   "description": "## Your Task",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "inquirer": "^9.1.5"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
   }
 }
