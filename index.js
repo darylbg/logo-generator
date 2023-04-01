@@ -1,5 +1,6 @@
 import inquirer from "inquirer";
 import fs from 'fs';
+import { Shapes } from './lib/shapes.js';
 
 // Check if the input is a color keyword or a hexadecimal color
 const colorValidator = function (input) { 
@@ -49,23 +50,11 @@ inquirer
     const {text, textColor, shape, shapeColor} = answers;
     var answeresSvg;
     if (shape == 'Triangle') {
-      answeresSvg = `
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="200">
-          <polygon points="150,20 70,180 230,180" fill="${shapeColor}"/>
-          <text x="150" y="130" font-size="40" text-anchor="middle" fill="${textColor}">${text}</text>
-        </svg>`
+      answeresSvg = Shapes.Triangle(shapeColor, textColor, text);
     } else if (shape == 'Circle') {
-      answeresSvg = `
-        <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="150" cy="100" r="80" fill="${shapeColor}" />
-          <text x="150" y="125" font-size="60" text-anchor="middle" fill="${textColor}">${text}</text>
-        </svg>`
+      answeresSvg = Shapes.Circle(shapeColor, textColor, text);
     } else if (shape == 'Square') {
-      answeresSvg = `
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="200">
-          <rect x="70" y="20" width="160" height="160" fill="${shapeColor}"/>
-          <text x="150" y="120" font-size="60" text-anchor="middle" fill="${textColor}">${text}</text>
-        </svg>`
+      answeresSvg = Shapes.Square(shapeColor, textColor, text);
     }
     fs.writeFile('logo.svg', answeresSvg, (error) => {
       error ? console.log(error) : console.log('Generated logo.svg!')
