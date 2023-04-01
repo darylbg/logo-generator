@@ -1,6 +1,7 @@
 import inquirer from "inquirer";
 import fs from 'fs';
-import { Shapes } from './lib/shapes.js';
+import {Shapes} from './lib/shapes.js';
+//const Shapes = require("../lib/shapes.js");
 
 // Check if the input is a color keyword or a hexadecimal color
 const colorValidator = function (input) { 
