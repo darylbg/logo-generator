@@ -29,9 +29,9 @@ inquirer
       type: 'input',
       name: 'textColor',
       message: 'Enter a color or a hexadecimal number for your logo text color',
-      // Validates that user input color or hexcode are valid/recognizable by svg
+      // Validates that the user input color is a valid color keyword, or a valid hexidecimal code
       validate: function(input) {
-        if (!colorNames.includes(input) && hexColorRegex({strict: true}).test(input)) {
+        if (colorNames.includes(input) || hexColorRegex().test(input)) {
           return true;
         } else {
           return 'You must enter a valid color keyword or hexadecimal number'
@@ -48,9 +48,9 @@ inquirer
       type: 'input',
       name: 'shapeColor',
       message: 'Enter a color or a hexadecimal number for your logo background color',
-      // Validates that user input color or hexcode are valid/recognizable by svg
+      // Validates that the user input color is a valid color keyword, or a valid hexidecimal code
       validate: function(input) {
-        if (!colorNames.includes(input) && hexColorRegex({strict: true}).test(input)) {
+        if (colorNames.includes(input) || hexColorRegex().test(input)) {
           return true;
         } else {
           return 'You must enter a valid color keyword or hexadecimal number'
